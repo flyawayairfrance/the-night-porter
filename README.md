@@ -8,9 +8,15 @@ There is no room counter on screen: the only numbers are the brass plates on the
 you reach a *numbered vestibule* with 3–4 identical doors. Only the one numbered right after the last door
 you opened is the real exit; the others are decoys (they rattle, and occasionally one slams back and hurts you).
 
+## Light sources
+Candles, lighters and flashlights run out; when one does it disappears from your inventory. A dead flashlight
+automatically takes a spare set of batteries if you carry one. Batteries can only be picked up if you have a flashlight,
+and they are discarded if you lose it.
+
 ## Check-in
 Every run begins at the reception desk. The receptionist greets you, a short check-in dialogue plays (E to continue),
-you receive your keycard, and the door to the rooms opens. After the first check-in of a session, retries start with the door open.
+you receive your keycard, and the door to the rooms opens. Every new game and every retry starts with the check-in.
+Ring the brass service bell on the desk with E.
 
 ## What lives in the hotel
 **Pacing.** The first encounter comes by room 3–4. After that a pace director makes sure something happens
@@ -27,7 +33,7 @@ Rush is coming (a lamp or two may waver gently when nothing is around).
 - **The Night Manager** (Mr. Valmont) — a giant who patrols libraries and the archive, and sleeps in the kitchen pantry.
   He hears noise: crouch (C toggles) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
   His eye is nearly blind: he only sees you up close in front of him (about 2.5 m, 1.5 m crouched) when you are not hidden.
-  An intro card introduces him the first time you enter his room.
+  An intro card introduces him every time you enter his room (Space skips it).
 - **Housekeeping** — stay in a wardrobe too long (about 14 s) and a hand drags you out. You get a warning at 10 s.
 - **Small scares** — a linen spider in some drawers and dryers, and a wardrobe that is already occupied.
 - **The long corridor** — every 20 rooms, a chase with no hiding places. Chandeliers fall in front of you and carts
