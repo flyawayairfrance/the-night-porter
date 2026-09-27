@@ -32,6 +32,11 @@
   #roomName { font-size: 14px; font-style: italic; opacity: 0.75; }
   #keyHud { position: absolute; top: 46px; left: 22px; display: none; align-items: center; gap: 6px; background: rgba(20,10,4,0.6); border: 1px solid rgba(215,179,106,0.6); border-radius: 8px; padding: 4px 10px; }
   #keyHud.on { display: flex; } #keyHud img { width: 28px; height: 28px; }
+  #noiseBox { position: absolute; right: 22px; top: 18px; width: 200px; display: none; text-shadow: 0 1px 2px #000; }
+  #noiseBox.on { display: block; } #noiseBox .lbl { font-size: 12px; letter-spacing: 0.3em; opacity: 0.8; margin-bottom: 4px; }
+  #noiseBox .bar { height: 10px; border: 1px solid rgba(239,227,196,0.7); border-radius: 6px; background: rgba(0,0,0,0.5); overflow: hidden; }
+  #noiseFill { height: 100%; width: 0%; background: linear-gradient(90deg, #7a9a5a, #d8b04a); transition: width .1s; } #noiseFill.hot { background: linear-gradient(90deg, #d8b04a, #d8423a); }
+  .fuseIco { display: inline-block; width: 22px; height: 9px; border-radius: 4px; background: linear-gradient(90deg, #ccc 0 18%, #e8e0cc 18% 82%, #ccc 82%); vertical-align: middle; }
   #cross { position: absolute; left: 50%; top: 50%; width: 5px; height: 5px; margin: -2.5px; border-radius: 50%; background: rgba(255,240,210,0.75); box-shadow: 0 0 3px #000; }
   #prompt { position: absolute; left: 50%; top: calc(50% + 34px); transform: translateX(-50%); font-size: 17px; text-shadow: 0 2px 4px #000, 0 0 8px #000; white-space: nowrap; }
   #hint { position: absolute; left: 50%; bottom: 150px; transform: translateX(-50%); max-width: 70vw; text-align: center; font-size: 18px; font-style: italic; padding: 8px 18px; background: rgba(10,5,2,0.55); border-radius: 8px; opacity: 0; transition: opacity .4s; text-shadow: 0 2px 3px #000; }
@@ -70,6 +75,7 @@
 <div id="hud">
   <div id="roomBox"><div id="roomName"></div></div>
   <div id="keyHud"></div>
+  <div id="noiseBox"><div class="lbl">NOISE</div><div class="bar"><div id="noiseFill"></div></div></div>
   <div id="cross"></div><div id="prompt"></div><div id="hint"></div>
   <div id="hotbar">
     <div class="slot"><div class="badge">1</div><img alt=""><div class="bar"><div class="fill"></div></div><div class="count"></div></div>
