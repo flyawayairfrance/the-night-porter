@@ -26,7 +26,7 @@ Rush is coming (a lamp or two may waver gently when nothing is around).
 - **The Portrait** — glowing eyes in a painting. It drains your health while you look at it. Look away.
 - **The Night Manager** (Mr. Valmont) — a giant who patrols libraries and the archive, and sleeps in the kitchen pantry.
   He hears noise: crouch (C toggles) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
-  His glowing lamp-eye also sees you if its beam sweeps over you while you are not hidden (closer range when crouched).
+  His eye is nearly blind: he only sees you up close in front of him (about 2.5 m, 1.5 m crouched) when you are not hidden.
   An intro card introduces him the first time you enter his room.
 - **Housekeeping** — stay in a wardrobe too long (about 14 s) and a hand drags you out. You get a warning at 10 s.
 - **Small scares** — a linen spider in some drawers and dryers, and a wardrobe that is already occupied.
