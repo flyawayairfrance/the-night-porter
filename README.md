@@ -8,19 +8,26 @@ There is no room counter on screen: the only numbers are the brass plates on the
 you reach a *numbered vestibule* with 3–4 identical doors. Only the one numbered right after the last door
 you opened is the real exit; the others are decoys (they rattle, and occasionally one slams back and hurts you).
 
+## Check-in
+Every run begins at the reception desk. The receptionist greets you, a short check-in dialogue plays (E to continue),
+you receive your keycard, and the door to the rooms opens. After the first check-in of a session, retries start with the door open.
+
 ## What lives in the hotel
 **Pacing.** The first encounter comes by room 3–4. After that a pace director makes sure something happens
-every 2–3 rooms. Between the big encounters there are small scares: the lights flicker and then black out, a door
-slams behind you, footsteps in the corridor, a shadow crossing a doorway, whispers.
+every 2–3 rooms. Between the big encounters there are small scares: the lights black out, a door
+slams behind you, footsteps in the corridor, a shadow crossing a doorway, whispers. The lights only flicker when the
+Rush is coming (a lamp or two may waver gently when nothing is around).
 
 **Monsters** (all original):
-- **The Bellhop Rush** — the lights flicker, the rumble grows, and it charges through. Hide in a wardrobe. From
-  room 12 it can turn round and charge back 1–2 more times, so if you leave the wardrobe too early, it kills you. Camera
+- **The Bellhop Rush** — the lights flicker, the rumble grows, and it charges through. You get about 5–6 s to hide in a
+  wardrobe (about 7 s the first time). It never comes before room 6, is rare until room 15, and from room 15 it can turn round and charge back 1–2 more times, so if you leave the wardrobe too early, it kills you. Camera
   shake grows with how close it is: faint when it's far away, strong as it passes. The shake only moves the camera,
   never turns it, and it's capped at 3.5 cm.
 - **The Portrait** — glowing eyes in a painting. It drains your health while you look at it. Look away.
-- **The Night Manager** — a blind giant who patrols libraries and the archive, and sleeps in the kitchen pantry.
-  He hunts by sound: crouch (C toggles) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
+- **The Night Manager** (Mr. Valmont) — a giant who patrols libraries and the archive, and sleeps in the kitchen pantry.
+  He hears noise: crouch (C toggles) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
+  His glowing lamp-eye also sees you if its beam sweeps over you while you are not hidden (closer range when crouched).
+  An intro card introduces him the first time you enter his room.
 - **Housekeeping** — stay in a wardrobe too long (about 14 s) and a hand drags you out. You get a warning at 10 s.
 - **Small scares** — a linen spider in some drawers and dryers, and a wardrobe that is already occupied.
 - **The long corridor** — every 20 rooms, a chase with no hiding places. Chandeliers fall in front of you and carts
@@ -69,4 +76,4 @@ drops automatically to keep input responsive.
 `node build.mjs` (needs esbuild; bundles `src/` + `vendor/` + `audio.js` + `entities.js` → `game.js`, `index.html`, `the-night-porter.html`, `dev.html`).
 
 ## Credits
-Character and prop models (bellboys, Night Manager, housekeeping hand, linen spider, portrait, key, padlock): Saint Micheal. Audio layer and task UI (combination lock, fuse cabinet, pickup toasts, bellboy whispers): Peter.
+Character and prop models (bellboys, Night Manager, housekeeping hand, linen spider, portrait, key, padlock): Saint Micheal. Audio layer, jumpscare stings, entity intro card and task UI (combination lock, fuse cabinet, pickup toasts, bellboy whispers): Peter.
