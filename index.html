@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Night Porter</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { --cream: #efe3c4; --gold: #d7b36a; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: Georgia, 'Times New Roman', serif; color: var(--cream); user-select: none; }
+  #game canvas { display: block; }
+  .screen { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; flex-direction: column; z-index: 20; text-align: center; }
+  .screen.on { display: flex; }
+  #title { background: radial-gradient(ellipse at center, rgba(20,8,4,0.15) 0%, rgba(0,0,0,0.85) 75%); }
+  #title h1 { font-size: clamp(42px, 7vw, 96px); letter-spacing: 0.12em; margin: 0; color: var(--gold); text-shadow: 0 0 24px rgba(255,160,60,0.45), 0 4px 0 #2a1406; font-weight: normal; }
+  #title h2 { font-weight: normal; font-style: italic; letter-spacing: 0.08em; opacity: 0.85; margin: 8px 0 34px; }
+  .btn { background: rgba(30,14,6,0.8); color: var(--cream); border: 2px solid var(--gold); padding: 12px 34px; font: inherit; font-size: 20px; letter-spacing: 0.1em; cursor: pointer; border-radius: 6px; margin: 6px; transition: background .2s, transform .2s; }
+  .btn:hover { background: rgba(120,60,20,0.8); transform: scale(1.04); }
+  .controls { margin-top: 30px; font-size: 14px; line-height: 1.8; opacity: 0.8; max-width: 640px; }
+  .controls b { color: var(--gold); font-weight: normal; border: 1px solid rgba(215,179,106,0.5); border-radius: 4px; padding: 0 6px; margin: 0 2px; }
+  #pause, #death, #win { background: rgba(0,0,0,0.72); }
+  .panel { background: rgba(24,12,6,0.92); border: 2px solid rgba(215,179,106,0.6); border-radius: 12px; padding: 28px 44px; min-width: 320px; }
+  .panel h1 { margin: 0 0 18px; color: var(--gold); font-weight: normal; letter-spacing: 0.1em; }
+  .row { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin: 12px 0; }
+  input[type=range] { width: 180px; accent-color: #c89a48; }
+  select { background: #1a0c06; color: var(--cream); border: 1px solid var(--gold); font: inherit; padding: 2px 6px; }
+  #death h1 { color: #d8423a; font-size: 44px; text-shadow: 0 0 20px rgba(200,20,10,0.6); }
+  #death p, #win p { max-width: 560px; opacity: 0.9; }
+  #hud { position: fixed; inset: 0; pointer-events: none; display: none; z-index: 10; }
+  #hud.on { display: block; }
+  #roomBox { position: absolute; top: 16px; left: 20px; z-index: 20; text-shadow: 0 1px 2px #000, 0 0 6px rgba(0,0,0,0.85); }
+  #roomName { font-size: 14px; font-style: italic; opacity: 0.75; }
+  #keyHud { position: absolute; top: 46px; left: 22px; display: none; align-items: center; gap: 6px; background: rgba(20,10,4,0.6); border: 1px solid rgba(215,179,106,0.6); border-radius: 8px; padding: 4px 10px; }
+  #keyHud.on { display: flex; } #keyHud img { width: 28px; height: 28px; }
+  #cross { position: absolute; left: 50%; top: 50%; width: 5px; height: 5px; margin: -2.5px; border-radius: 50%; background: rgba(255,240,210,0.75); box-shadow: 0 0 3px #000; }
+  #prompt { position: absolute; left: 50%; top: calc(50% + 34px); transform: translateX(-50%); font-size: 17px; text-shadow: 0 2px 4px #000, 0 0 8px #000; white-space: nowrap; }
+  #hint { position: absolute; left: 50%; bottom: 150px; transform: translateX(-50%); max-width: 70vw; text-align: center; font-size: 18px; font-style: italic; padding: 8px 18px; background: rgba(10,5,2,0.55); border-radius: 8px; opacity: 0; transition: opacity .4s; text-shadow: 0 2px 3px #000; }
+  #hint.on { opacity: 1; } #hint.urgent { color: #ffb8a0; border: 1px solid rgba(255,120,90,0.5); animation: pulse 0.8s infinite alternate; }
+  @keyframes pulse { from { transform: translateX(-50%) scale(1); } to { transform: translateX(-50%) scale(1.03); } }
+  #hotbar { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; gap: 12px; }
+  .slot { position: relative; width: 74px; height: 74px; border-radius: 12px; background: rgba(28,20,16,0.55); border: 3px solid rgba(239,227,196,0.75); box-shadow: inset 0 0 12px rgba(0,0,0,0.6); transition: transform .12s, border-color .12s, background .12s; }
+  .slot.sel { transform: translateY(-8px) scale(1.07); border-color: #fff2cc; background: rgba(70,46,30,0.7); box-shadow: 0 0 14px rgba(255,210,140,0.45), inset 0 0 12px rgba(0,0,0,0.5); }
+  .slot .badge { position: absolute; left: -12px; top: -12px; width: 26px; height: 26px; border-radius: 50%; background: rgba(40,28,22,0.95); border: 2px solid var(--cream); display: flex; align-items: center; justify-content: center; font-size: 14px; font-family: Arial, sans-serif; font-weight: bold; }
+  .slot img { position: absolute; left: 9px; top: 5px; width: 56px; height: 56px; display: none; }
+  .slot .bar { position: absolute; left: 9px; right: 9px; bottom: 6px; height: 6px; border-radius: 3px; background: rgba(0,0,0,0.6); border: 1px solid rgba(239,227,196,0.6); display: none; overflow: hidden; }
+  .slot .fill { height: 100%; width: 100%; background: linear-gradient(90deg, #f3e2b0, #fff8e0); }
+  .slot .count { position: absolute; right: 6px; bottom: 4px; font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-shadow: 0 1px 2px #000; }
+  #bars { position: absolute; left: 22px; bottom: 26px; width: 220px; }
+  .meter { height: 14px; border-radius: 8px; border: 3px solid rgba(239,227,196,0.85); background: rgba(20,14,10,0.6); overflow: hidden; margin-top: 8px; }
+  .meter div { height: 100%; transition: width .1s; }
+  #hpFill { background: linear-gradient(90deg, #8a1a14, #d0443a); }
+  #stamFill { background: linear-gradient(90deg, #e8d8b0, #fff6e0); } #stamFill.ex { background: #a08060; }
+  .mlabel { font-size: 11px; letter-spacing: 0.25em; opacity: 0.7; margin-top: 6px; }
+  #dmg { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(120,0,0,0) 40%, rgba(160,0,0,0.9) 100%); opacity: 0; z-index: 9; }
+  #hideVignette { position: fixed; inset: 0; pointer-events: none; z-index: 8; opacity: 0; transition: opacity .6s; background: radial-gradient(ellipse 22% 60% at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.92) 100%); }
+  #hideVignette.on { opacity: 1; }
+  #scare { position: fixed; inset: 0; pointer-events: none; z-index: 15; opacity: 0; background: rgba(255,255,255,0.0); }
+  #scare.on { animation: scare 1.4s forwards; }
+  @keyframes scare { 0% { opacity: 1; background: rgba(255,240,220,0.5); } 10% { background: rgba(0,0,0,0); } 70% { opacity: 1; background: rgba(0,0,0,0); } 100% { opacity: 1; background: rgba(0,0,0,1); } }
+  #mapOverlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 12; pointer-events: none; }
+  #mapOverlay.on { display: flex; }
+  #mapCanvas { width: min(62vh, 80vw); height: min(62vh, 80vw); box-shadow: 0 10px 40px #000; transform: rotate(-1.5deg); border-radius: 4px; }
+  #stats { position: fixed; right: 8px; top: 8px; font: 12px monospace; background: rgba(0,0,0,0.6); padding: 4px 8px; z-index: 30; display: none; }
+  #seedLine { font-size: 13px; opacity: 0.6; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<div id="dmg"></div><div id="hideVignette"></div><div id="scare"></div>
+<div id="hud">
+  <div id="roomBox"><div id="roomName"></div></div>
+  <div id="keyHud"></div>
+  <div id="cross"></div><div id="prompt"></div><div id="hint"></div>
+  <div id="hotbar">
+    <div class="slot"><div class="badge">1</div><img alt=""><div class="bar"><div class="fill"></div></div><div class="count"></div></div>
+    <div class="slot"><div class="badge">2</div><img alt=""><div class="bar"><div class="fill"></div></div><div class="count"></div></div>
+    <div class="slot"><div class="badge">3</div><img alt=""><div class="bar"><div class="fill"></div></div><div class="count"></div></div>
+    <div class="slot"><div class="badge">4</div><img alt=""><div class="bar"><div class="fill"></div></div><div class="count"></div></div>
+  </div>
+  <div id="bars"><div class="mlabel">HEALTH</div><div class="meter"><div id="hpFill"></div></div><div class="mlabel">STAMINA</div><div class="meter"><div id="stamFill"></div></div></div>
+</div>
+<div id="mapOverlay"><canvas id="mapCanvas" width="560" height="560"></canvas></div>
+<div id="stats"></div>
+<div id="title" class="screen on">
+  <h1>THE NIGHT PORTER</h1>
+  <h2>Hotel Vesperine · keep count until check-out</h2>
+  <button id="startBtn" class="btn">CLICK TO BEGIN</button>
+  <div class="controls">
+    <b>W A S D</b> move &nbsp; <b>Mouse</b> look &nbsp; <b>Shift</b> sprint &nbsp; <b>C / Ctrl</b> crouch<br>
+    <b>E</b> open / take / hide &nbsp; <b>1–4</b> or <b>wheel</b> select item &nbsp; <b>Click / F</b> use item &nbsp; <b>Esc</b> pause<br>
+    When the lights flicker, hide. In the dark, look at what whispers. Headphones recommended.
+  </div>
+</div>
+<div id="pause" class="screen"><div class="panel">
+  <h1>PAUSED</h1>
+  <div class="row"><span>Volume</span><input id="vol" type="range" min="0" max="1" step="0.01"></div>
+  <div class="row"><span>Mouse sensitivity</span><input id="sens" type="range" min="0.2" max="3" step="0.05"></div>
+  <div class="row"><span>Quality</span><select id="quality"><option value="high">High (bloom)</option><option value="medium">Medium</option><option value="low">Low</option></select></div>
+  <button id="resumeBtn" class="btn">RESUME</button><br>
+  <button id="restartBtn" class="btn">RESTART RUN</button><button id="newSeedBtn" class="btn">NEW HOTEL</button>
+  <div id="seedLine">Hotel #<span id="seedLabel"></span> (add ?seed=N to the URL to replay)</div>
+</div></div>
+<div id="death" class="screen"><div class="panel">
+  <h1 id="deathTitle">YOU CHECKED OUT EARLY</h1><p id="deathHint"></p><p id="deathRoom"></p>
+  <button id="retryBtn" class="btn">TRY AGAIN</button><button id="retryNewBtn" class="btn">NEW HOTEL</button>
+</div></div>
+<div id="win" class="screen"><div class="panel">
+  <h1>CHECKED OUT</h1><p>The front doors of the Hotel Vesperine swing open onto cold, grey dawn. You kept count through every door.</p><p id="winStats"></p>
+  <button id="winAgainBtn" class="btn">STAY ANOTHER NIGHT</button>
+</div></div>
+<script src="game.js"></script>
+</body>
+</html>
