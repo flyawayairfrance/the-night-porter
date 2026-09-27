@@ -20,7 +20,7 @@ slams behind you, footsteps in the corridor, a shadow crossing a doorway, whispe
   never turns it, and it's capped at 3.5 cm.
 - **The Portrait** — glowing eyes in a painting. It drains your health while you look at it. Look away.
 - **The Night Manager** — a blind giant who patrols libraries and the archive, and sleeps in the kitchen pantry.
-  He hunts by sound: crouch (C) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
+  He hunts by sound: crouch (C toggles) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
 - **Housekeeping** — stay in a wardrobe too long (about 14 s) and a hand drags you out. You get a warning at 10 s.
 - **Small scares** — a linen spider in some drawers and dryers, and a wardrobe that is already occupied.
 - **The long corridor** — every 20 rooms, a chase with no hiding places. Chandeliers fall in front of you and carts
@@ -55,7 +55,7 @@ off his path and something in the dark pulls at you. At the end he points to the
 - URL options: `?seed=1234` (replay a hotel), `?quality=high|medium|low`.
 
 ## Controls
-WASD move · Mouse look (pointer lock) · Shift sprint (stamina) · C / Ctrl crouch · E open / take / hide / step out ·
+WASD move · Mouse look (pointer lock) · Shift sprint (stamina) · C / Ctrl crouch (toggle: press again to stand) · E open / take / hide / step out ·
 1–4 or mouse wheel select item · R use / toggle the selected item (click only captures the mouse) · Esc pause · ` (backquote) perf overlay.
 Combination lock: ←/→ dial · ↑/↓ or 0–9 set · Enter try · Esc close. Fuse cabinet: 1–3 fit a fuse · Enter pull the lever · Esc close.
 
