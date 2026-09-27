@@ -87,14 +87,15 @@
   <button id="startBtn" class="btn">CLICK TO BEGIN</button>
   <div class="controls">
     <b>W A S D</b> move &nbsp; <b>Mouse</b> look &nbsp; <b>Shift</b> sprint &nbsp; <b>C / Ctrl</b> crouch<br>
-    <b>E</b> open / take / hide &nbsp; <b>1–4</b> or <b>wheel</b> select item &nbsp; <b>Click / F</b> use item &nbsp; <b>Esc</b> pause<br>
+    <b>E</b> open / take / hide &nbsp; <b>1–4</b> or <b>wheel</b> select item &nbsp; <b>R</b> use item &nbsp; <b>Esc</b> pause<br>
     When the lights flicker, hide. In the dark, look at what whispers. Headphones recommended.
   </div>
 </div>
 <div id="pause" class="screen"><div class="panel">
   <h1>PAUSED</h1>
   <div class="row"><span>Volume</span><input id="vol" type="range" min="0" max="1" step="0.01"></div>
-  <div class="row"><span>Mouse sensitivity</span><input id="sens" type="range" min="0.2" max="3" step="0.05"></div>
+  <div class="row"><span>Mouse sensitivity</span><span><input id="sens" type="range" min="0.2" max="5" step="0.05"> <span id="sensVal" style="display:inline-block;min-width:3.2em;text-align:right"></span></span></div>
+  <div class="row"><span>Mouse smoothing</span><span><input id="smooth" type="range" min="0" max="1" step="0.05"> <span id="smoothVal" style="display:inline-block;min-width:3.2em;text-align:right"></span></span></div>
   <div class="row"><span>Quality</span><select id="quality"><option value="high">High (bloom)</option><option value="medium">Medium</option><option value="low">Low</option></select></div>
   <button id="resumeBtn" class="btn">RESUME</button><br>
   <button id="restartBtn" class="btn">RESTART RUN</button><button id="newSeedBtn" class="btn">NEW HOTEL</button>

@@ -16,7 +16,13 @@ you opened is the real exit; the others are decoys (they rattle, and occasionall
 
 ## Controls
 WASD move · Mouse look (pointer lock) · Shift sprint (stamina) · C / Ctrl crouch · E open / take / hide / step out ·
-1–4 or mouse wheel select item · Left click / F use item · Esc pause · ` (backquote) perf overlay.
+1–4 or mouse wheel select item · R use / toggle the selected item (click only captures the mouse) · Esc pause · ` (backquote) perf overlay.
+
+Mouse look: pointer-lock movement (unaccelerated where the browser supports it) is applied to the look
+target on every input event. The camera follows it with very light, frame-rate-independent smoothing
+(default 0.3 ≈ 20–30 ms settle; 0 = fully raw). Sensitivity (default 1.6, range 0.2–5) and Mouse smoothing
+(0–1) are in the pause menu (Esc) and are saved in localStorage. If frames get slow, the render resolution
+drops automatically to keep input responsive.
 
 ## Rebuild
 `node build.mjs` (needs esbuild; bundles `src/` + `vendor/` + `audio.js` + `entities.js` → `game.js`, `index.html`, `the-night-porter.html`, `dev.html`).
