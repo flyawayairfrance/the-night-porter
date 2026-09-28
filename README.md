@@ -83,3 +83,6 @@ drops automatically to keep input responsive.
 
 ## Credits
 Character and prop models (bellboys, Night Manager, housekeeping hand, linen spider, portrait, key, padlock): Saint Micheal. Audio layer, jumpscare stings, entity intro card and task UI (combination lock, fuse cabinet, pickup toasts, bellboy whispers): Peter.
+
+## Multiplayer (beta)
+Title screen → MULTIPLAYER: sign a nickname (saved locally), then Create party (5-letter code, host presses START NOW), Join with code, or Quick play (public lobby, 3-minute countdown, starts at 4 players). Serverless WebRTC via Trystero (public MQTT signalling + public STUN), max 4 players. Host runs the Rush schedule and arbitrates item pickups; the Night Manager is simulated by one player in his room and hears/sees everyone. Downed players spectate; a teammate holds E for 3 s to revive them at 50 HP. One guest per wardrobe; ~1.5× wardrobes and slightly more items in multiplayer.

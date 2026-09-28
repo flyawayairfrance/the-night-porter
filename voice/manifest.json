@@ -1,0 +1,100 @@
+{
+  "voice": "Jenny (Dioco) — Piper en_GB-jenny_dioco-medium",
+  "loudness": "-18 LUFS integrated, -1.5 dBTP",
+  "formats": {
+    "ogg": "Opus 28 kbps mono 48 kHz",
+    "mp3": "MP3 32 kbps mono 24 kHz (fallback)"
+  },
+  "lines": [
+    {
+      "id": "receptionist_01",
+      "source": "src/reception.js CHECKIN_LINES[0]",
+      "checkinIndex": 0,
+      "text": "Welcome to the hotel! How can I help you today?",
+      "ogg": "receptionist_01.ogg",
+      "mp3": "receptionist_01.mp3",
+      "duration": 3.506,
+      "speechStart": 0.06,
+      "bytes": {
+        "ogg": 12083,
+        "mp3": 14444
+      },
+      "lengthScale": 1.12,
+      "transcript": "Welcome to the hotel. How can I help you today?",
+      "wordMatch": 1.0,
+      "words": 10
+    },
+    {
+      "id": "receptionist_02",
+      "source": "src/reception.js CHECKIN_LINES[2]",
+      "checkinIndex": 2,
+      "text": "Of course. Your room is upstairs. Always take the next numbered door, never any other.",
+      "ogg": "receptionist_02.ogg",
+      "mp3": "receptionist_02.mp3",
+      "duration": 6.1,
+      "speechStart": 0.06,
+      "bytes": {
+        "ogg": 21348,
+        "mp3": 24812
+      },
+      "lengthScale": 1.15,
+      "transcript": "Of course, your room is upstairs. Always take the next number door, never any other.",
+      "wordMatch": 0.933,
+      "words": 15
+    },
+    {
+      "id": "receptionist_03",
+      "source": "src/reception.js CHECKIN_LINES[3]",
+      "checkinIndex": 3,
+      "text": "And if the lights begin to flicker, find a wardrobe. Hotel policy.",
+      "ogg": "receptionist_03.ogg",
+      "mp3": "receptionist_03.mp3",
+      "duration": 5.421,
+      "speechStart": 0.06,
+      "bytes": {
+        "ogg": 18952,
+        "mp3": 22124
+      },
+      "lengthScale": 1.15,
+      "transcript": "And if the lights begin to flicker, find a wardrobe. Hotel policy",
+      "wordMatch": 1.0,
+      "words": 12
+    },
+    {
+      "id": "receptionist_04",
+      "source": "src/reception.js CHECKIN_LINES[4]",
+      "checkinIndex": 4,
+      "text": "Here is your keycard. Enjoy your stay.",
+      "ogg": "receptionist_04.ogg",
+      "mp3": "receptionist_04.mp3",
+      "duration": 3.297,
+      "speechStart": 0.06,
+      "bytes": {
+        "ogg": 11282,
+        "mp3": 13676
+      },
+      "lengthScale": 1.12,
+      "transcript": "Here is your keycard. Enjoy your stay.",
+      "wordMatch": 1.0,
+      "words": 7
+    },
+    {
+      "id": "receptionist_bell",
+      "source": "src/main.js ringBell() hint (quotes stripped)",
+      "checkinIndex": null,
+      "text": "Yes? Your room is through that door. Mind the numbers.",
+      "ogg": "receptionist_bell.ogg",
+      "mp3": "receptionist_bell.mp3",
+      "duration": 4.498,
+      "speechStart": 0.06,
+      "bytes": {
+        "ogg": 15451,
+        "mp3": 18476
+      },
+      "lengthScale": 1.12,
+      "transcript": "Yes, your room is through that door. Mind the numbers.",
+      "wordMatch": 1.0,
+      "words": 10
+    }
+  ]
+}
