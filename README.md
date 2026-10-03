@@ -30,12 +30,12 @@ Rush is coming (a lamp or two may waver gently when nothing is around).
   shake grows with how close it is: faint when it's far away, strong as it passes. The shake only moves the camera,
   never turns it, and it's capped at 3.5 cm.
 - **The Portrait** — glowing eyes in a painting. It drains your health while you look at it. Look away.
-- **The Night Manager** (Mr. Valmont) — a giant who patrols libraries and the archive, and sleeps in the kitchen pantry.
+- **The Night Manager** (Mr. Valmont) — a giant who sleeps in the kitchen pantry.
   He hears noise: crouch (C toggles) or walk slowly. Sprinting, slamming doors or a wrong lock combination bring him running.
   His eye is nearly blind: he only sees you up close in front of him (about 2.5 m, 1.5 m crouched) when you are not hidden.
   An intro card introduces him every time you enter his room (Space skips it).
 - **Housekeeping** — stay in a wardrobe too long (about 14 s) and a hand drags you out. You get a warning at 10 s.
-- **The Grand Maester** — a towering, hunched old archivist who shuffles through the Great Library. He sees badly in
+- **The Grand Maester** — a towering, hunched old archivist who roams every library, the Great Library and the small archive alike. He sees badly in
   the dark, but a lit flame shows you from across the hall. When his spine cracks straight, he has seen you: break his
   line of sight and hide in a wardrobe or a reading nook. If he stops and sniffs at your hiding place, hold Space to
   hold your breath.
@@ -54,17 +54,11 @@ their eyes, bow as you come near, and hold out a battery, lighter, key or a whis
 room", "the real door is on the left"). Fakes never look at you: the head is crooked, or he faces the wall. Get
 close and his neck snaps round, then he lunges. Back away or hide.
 
-**Guide bellboys.** The linen maze rooms are pitch dark, and the three doors at the end all show the same number.
-A guide bellboy walks ahead holding a lantern and beckons when you fall behind. Walk exactly where he walks: step
-off his path and something in the dark pulls at you. At the end he points to the real door, and it opens.
-
 **Task rooms**
-- **Archive** — glowing books hold the 4 digits of the next door's code lock while the Night Manager patrols.
+- **Archive** — glowing books, hidden somewhere different every night (desks, shelf ledges, the floor), hold the 4 digits of the next door's code lock while the Grand Maester roams.
   Combination lock: ←/→ (or A/D) choose a dial, ↑/↓ or 0–9 set it, Enter tries, Esc steps away. A wrong code is loud.
 - **Electrical room** — the power is out. Find 3 fuses (spares lie in the two dark rooms before it) and put them in
   the fuse box to open the electric bolt.
-- **Laundry** — the key is in one of the dryers. Open a dryer (E) and take what's inside (E again). Not every
-  dryer is empty.
 - **Kitchen** — something sleeps in the pantry. Stay quiet: crouch, walk slowly and avoid the pots on the floor.
   The noise meter shows how close he is to waking.
 - **Locked doors** — the key (an antique brass key) is hidden in the room. Using it on the heavy padlock plays a
