@@ -35,9 +35,18 @@ Rush is coming (a lamp or two may waver gently when nothing is around).
   His eye is nearly blind: he only sees you up close in front of him (about 2.5 m, 1.5 m crouched) when you are not hidden.
   An intro card introduces him every time you enter his room (Space skips it).
 - **Housekeeping** — stay in a wardrobe too long (about 14 s) and a hand drags you out. You get a warning at 10 s.
+- **The Grand Maester** — a towering, hunched old archivist who shuffles through the Great Library. He sees badly in
+  the dark, but a lit flame shows you from across the hall. When his spine cracks straight, he has seen you: break his
+  line of sight and hide in a wardrobe or a reading nook. If he stops and sniffs at your hiding place, hold Space to
+  hold your breath.
 - **Small scares** — a linen spider in some drawers and dryers, and a wardrobe that is already occupied.
 - **The long corridor** — every 20 rooms, a chase with no hiding places. Chandeliers fall in front of you and carts
   block the lanes. At the end are two numbered doors; only the next number is real.
+
+**The castle.** Past reception the hotel turns into an old stone keep. Guest bedchambers, cloister walks open to the
+storm, stone stairs and spiral towers, the vast Great Library (a 30 x 45 m reading hall under a dome with galleries,
+ladders and candle-lit desks) and, rarely, a dining hall with a long stone table. The doors are heavy iron-banded oak.
+Torches, candles and fireplaces burn with real flame, and your held candle flickers as you move.
 
 **Bellboys.** Every few rooms a pale, glowing ghost bellboy stands in a corner. He wears a red uniform with gold
 piping and buttons, a pillbox hat with a chin strap and white gloves. Real ones stand straight, follow you with

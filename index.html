@@ -59,6 +59,10 @@
   #dmg { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(120,0,0,0) 40%, rgba(160,0,0,0.9) 100%); opacity: 0; z-index: 9; }
   #hideVignette { position: fixed; inset: 0; pointer-events: none; z-index: 8; opacity: 0; transition: opacity .6s; background: radial-gradient(ellipse 22% 60% at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.92) 100%); }
   #hideVignette.on { opacity: 1; }
+  #breath { position: fixed; left: 50%; bottom: 128px; transform: translateX(-50%); width: 220px; z-index: 9; pointer-events: none; opacity: 0; transition: opacity .3s; font: 600 11px/1.4 Georgia, serif; letter-spacing: .18em; color: #e8d6b8; text-align: center; text-shadow: 0 1px 3px #000; }
+  #breath.on { opacity: 1; } #breath.hold span { color: #ffcf80; }
+  #breath i { display: block; height: 5px; margin-top: 4px; border: 1px solid rgba(232,214,184,.55); background: linear-gradient(90deg,#c9a46a,#f0dcb0) no-repeat; background-size: 100% 100%; }
+  #breath.listen i { box-shadow: 0 0 10px rgba(255,190,110,.8); }
   #scare { position: fixed; inset: 0; pointer-events: none; z-index: 15; opacity: 0; background: rgba(255,255,255,0.0); }
   #scare.on { animation: scare 1.4s forwards; }
   @keyframes scare { 0% { opacity: 1; background: rgba(255,240,220,0.5); } 10% { background: rgba(0,0,0,0); } 70% { opacity: 1; background: rgba(0,0,0,0); } 100% { opacity: 1; background: rgba(0,0,0,1); } }
@@ -71,7 +75,7 @@
 </head>
 <body>
 <div id="game"></div>
-<div id="dmg"></div><div id="hideVignette"></div><div id="scare"></div><div id="stutter" style="position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:14"></div>
+<div id="dmg"></div><div id="hideVignette"></div><div id="breath"><span>BREATH · hold SPACE</span><i id="breathBar"></i></div><div id="scare"></div><div id="stutter" style="position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:14"></div>
 <div id="hud">
   <div id="roomBox"><div id="roomName"></div></div>
   <div id="keyHud"></div>
@@ -94,7 +98,7 @@
   <div class="controls">
     <b>W A S D</b> move &nbsp; <b>Mouse</b> look &nbsp; <b>Shift</b> sprint &nbsp; <b>C / Ctrl</b> crouch (toggle)<br>
     <b>E</b> open / take / hide &nbsp; <b>1–4</b> or <b>wheel</b> select item &nbsp; <b>R</b> use item &nbsp; <b>Esc</b> pause<br>
-    When the lights flicker, hide. In the dark, look at what whispers. Headphones recommended.
+    When you hear her running, hide. If she rattles your wardrobe, hold <b>Space</b> to hold your breath. In the dark, look at what whispers. Headphones recommended.
   </div>
 </div>
 <div id="pause" class="screen"><div class="panel">
